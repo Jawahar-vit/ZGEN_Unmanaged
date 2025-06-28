@@ -63,7 +63,8 @@ annotate entity Z9C_JP_TRAV_01 with
     @UI.lineItem: [{position: 50,importance: #HIGH },
                                { type: #FOR_ACTION,
                                  dataAction: 'set_status_booked' ,
-                                 label: 'Set to Booked'}]
+                                 label: 'Set to Booked',
+                                 invocationGrouping: #CHANGE_SET }]
     Status;
 
 }
