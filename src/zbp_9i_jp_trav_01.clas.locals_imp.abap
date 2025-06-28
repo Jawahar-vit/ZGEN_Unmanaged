@@ -95,7 +95,7 @@ CLASS lhc_Z9I_JP_TRAV_01 IMPLEMENTATION.
                                               severity = if_abap_behv_message=>severity-error )
                           %key-TravelID = <lfs_travel_entity>-TravelID
                           %cid =  <lfs_travel_entity>-%cid
-                          %create = 'X'
+                          %create = flag_changed
                           TravelID = <lfs_travel_entity>-TravelID )
                           TO reported-z9i_jp_trav_01.
         ENDLOOP.
@@ -140,7 +140,7 @@ CLASS lhc_Z9I_JP_TRAV_01 IMPLEMENTATION.
                                               severity = if_abap_behv_message=>severity-error )
                           %key-TravelID = <lfs_travel_entity>-TravelID
                           %cid =  <lfs_travel_entity>-%cid_ref
-                          %update = 'X'
+                          %update = flag_changed
                           TravelID = <lfs_travel_entity>-TravelID )
                           TO reported-z9i_jp_trav_01.
 
@@ -176,7 +176,7 @@ CLASS lhc_Z9I_JP_TRAV_01 IMPLEMENTATION.
                                               severity = if_abap_behv_message=>severity-error )
                           %key-TravelID = <lfs_del_keys>-TravelID
                           %cid          =  <lfs_del_keys>-%cid_ref
-                          %delete       = 'X'
+                          %delete       = flag_changed
                           TravelID      = <lfs_del_keys>-TravelID
                         ) TO reported-z9i_jp_trav_01.
 

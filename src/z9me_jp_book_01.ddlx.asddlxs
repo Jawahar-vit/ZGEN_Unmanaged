@@ -1,4 +1,4 @@
-@Metadata.layer: #CUSTOMER
+@Metadata.layer: #CORE
 @UI.headerInfo: {
     typeName: 'Booking',
     typeNamePlural: 'Bookings',
@@ -29,15 +29,24 @@ annotate entity Z9C_JP_BOOK_01 with
     @UI:{lineItem: [{position: 30,importance: #HIGH }],
         identification: [{position: 30 }]
     }
+    @Consumption.valueHelpDefinition: [{ entity:{ name: '/DMO/I_Customer_StdVH', element: 'CustomerID' },useForValidation: true }]
+    
     CustomerID;
 
     @UI:{lineItem: [{position: 40,importance: #HIGH }],
          identification: [{position: 40 }]
     }
+      @Consumption.valueHelpDefinition: [{ entity:{ name: '/DMO/I_Flight_StdVH', element: 'AirlineID' } }]
+    
     AirlineID;
     @UI:{lineItem: [{position: 50,importance: #HIGH }],
           identification: [{position: 50 }]
     }
+    @Consumption.valueHelpDefinition: [{ entity:{ name: '/DMO/I_Flight_StdVH', element: 'ConnectionID' },
+                                        additionalBinding: [{ localElement: 'AirlineID', element: 'AirlineID', usage: #FILTER_AND_RESULT  },
+                                                            { localElement: 'FlightDate', element: 'FlightDate', usage: #RESULT },
+                                                            { localElement: 'FlightPrice', element: 'Price', usage: #RESULT },
+                                                            { localElement: 'CurrencyCode', element: 'CurrencyCode', usage: #RESULT }] }]
     ConnectionID;
 
     @UI:{lineItem: [{position: 60,importance: #HIGH }],
