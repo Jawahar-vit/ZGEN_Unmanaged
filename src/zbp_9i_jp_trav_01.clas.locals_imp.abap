@@ -96,7 +96,8 @@ CLASS lhc_Z9I_JP_TRAV_01 IMPLEMENTATION.
                           %key-TravelID = <lfs_travel_entity>-TravelID
                           %cid =  <lfs_travel_entity>-%cid
                           %create = flag_changed
-                          TravelID = <lfs_travel_entity>-TravelID )
+
+                           )
                           TO reported-z9i_jp_trav_01.
         ENDLOOP.
       ENDIF.
@@ -141,7 +142,7 @@ CLASS lhc_Z9I_JP_TRAV_01 IMPLEMENTATION.
                           %key-TravelID = <lfs_travel_entity>-TravelID
                           %cid =  <lfs_travel_entity>-%cid_ref
                           %update = flag_changed
-                          TravelID = <lfs_travel_entity>-TravelID )
+                                                )
                           TO reported-z9i_jp_trav_01.
 
         ENDLOOP.
@@ -177,7 +178,7 @@ CLASS lhc_Z9I_JP_TRAV_01 IMPLEMENTATION.
                           %key-TravelID = <lfs_del_keys>-TravelID
                           %cid          =  <lfs_del_keys>-%cid_ref
                           %delete       = flag_changed
-                          TravelID      = <lfs_del_keys>-TravelID
+
                         ) TO reported-z9i_jp_trav_01.
 
         ENDLOOP.
@@ -265,8 +266,7 @@ CLASS lhc_Z9I_JP_TRAV_01 IMPLEMENTATION.
                             %key-TravelID = lv_travel_id
                             %key-bookingid = ls_booking-booking_id
                             %cid = <lfs_booking>-%cid
-                            TravelID = lv_travel_id
-                            bookingid = ls_booking-booking_id
+
                            ) TO reported-z9i_jp_book_01.
           ENDLOOP.
         ENDLOOP.
@@ -287,7 +287,7 @@ CLASS lhc_Z9I_JP_TRAV_01 IMPLEMENTATION.
                                               severity = if_abap_behv_message=>severity-error )
                           %key-TravelID = lv_travel_id
                           %cid          = <lfs_travel_booking>-%cid_ref
-                          TravelID      = lv_travel_id
+
                         ) TO reported-z9i_jp_trav_01.
         ENDLOOP.
       ENDIF.
@@ -327,7 +327,7 @@ CLASS lhc_Z9I_JP_TRAV_01 IMPLEMENTATION.
                                             severity = if_abap_behv_message=>severity-error )
                         %key-TravelID = <travel_set_status_booked>-TravelId
                         %cid          = <travel_set_status_booked>-%cid_ref
-                        TravelID      = <travel_set_status_booked>-TravelId
+
                       ) TO reported-z9i_jp_trav_01.
       ENDLOOP.
 
@@ -415,8 +415,7 @@ CLASS lhc_Z9I_JP_BOOK_01 IMPLEMENTATION.
                         %key-bookingid = ls_booking-booking_id
                         %cid           = <lfs_booking>-%cid_ref
                         %update        = flag_changed
-                        TravelID       = <lfs_booking>-TravelID
-                        bookingid      = <lfs_booking>-BookingID
+
                        ) TO reported-z9i_jp_book_01.
       ENDLOOP.
     ENDLOOP.
@@ -455,8 +454,7 @@ CLASS lhc_Z9I_JP_BOOK_01 IMPLEMENTATION.
                           %key-bookingid = <lfs_booking>-BookingID
                           %cid          =  <lfs_booking>-%cid_ref
                           %delete       = flag_changed
-                          TravelID      = <lfs_booking>-TravelID
-                          bookingid = <lfs_booking>-BookingID
+
                         ) TO reported-z9i_jp_book_01.
         ENDLOOP.
       ENDIF.
